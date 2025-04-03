@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Simulator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="email"], input[type="text"] { width: 100%; padding: 8px; }
+        button { background: #4CAF50; color: white; border: none; padding: 10px 15px; cursor: pointer; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Phishing Email Simulator</h1>
+    
+    {% if success %}
+        <p class="success">{{ success }}</p>
+    {% endif %}
+    
+    {% if error %}
+        <p class="error">Error: {{ error }}</p>
+    {% endif %}
+    
+    <form action="/send_email" method="POST">
+        <div class="form-group">
+            <label for="target_email">Recipient Email:</label>
+            <input type="email" id="target_email" name="target_email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="fake_link">Fake Login Page URL (optional):</label>
+            <input type="text" id="fake_link" name="fake_link" value="http://localhost:5000/fake_login">
+        </div>
+        
+        <button type="submit">Send Phishing Email</button>
+    </form>
+    
+    <h2>Captured Credentials</h2>
+    <pre>{{ captured_credentials }}</pre>
+</body>
+</html>

